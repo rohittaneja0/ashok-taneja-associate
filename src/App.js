@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { createTheme, ThemeProvider } from "@mui/material";
+import ResponsiveAppBar from "./Components/ResponsiveAppBar";
+
+const theme = createTheme({
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#000000',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <ResponsiveAppBar />
+    </ThemeProvider>
   );
 }
 
