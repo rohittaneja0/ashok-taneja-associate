@@ -1,5 +1,13 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
+import ObamacareForm from "./domain/ObamacareForm";
+import Services from "./domain/Services";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -8,7 +16,7 @@ const theme = createTheme({
       main: '#000000',
     },
     secondary: {
-      main: '#f50057',
+      main: '#00b0ff',
     },
   },
 });
@@ -16,7 +24,14 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <ResponsiveAppBar />
+      <Router>
+        <ResponsiveAppBar />
+
+        <Routes>
+          <Route path="/services" element={<Services />} />
+          <Route path="/obamacareForm" element={<ObamacareForm />} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }
