@@ -1,8 +1,22 @@
 import React from "react";
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu"
+import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
+import {
+    AppBar,
+    Box,
+    Toolbar,
+    IconButton,
+    Typography,
+    Menu,
+    Container,
+    Button,
+    MenuItem
+} from "@mui/material";
 
-const pages = ['Services', 'Obamacare Form'];
+const pages = [
+    { title: "Services", link: "services" },
+    { title: "Obamacare Form", link: "obamacareForm" }
+];
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -59,8 +73,13 @@ const ResponsiveAppBar = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                <MenuItem
+                                    key={page.title}
+                                    onClick={handleCloseNavMenu}
+                                    component={Link}
+                                    to={page.link}
+                                >
+                                    <Typography textAlign="center">{page.title}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -68,18 +87,20 @@ const ResponsiveAppBar = () => {
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, textAlign: "center" }}
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
                         Ashok Taneja & Associates
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
-                                key={page}
+                                key={page.title}
+                                component={Link}
+                                to={page.link}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                {page.title}
                             </Button>
                         ))}
                     </Box>
