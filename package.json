@@ -1,6 +1,7 @@
 {
     "name": "ashok-taneja-associates",
     "version": "0.1.0",
+    "homepage": "ashoktaneja.com",
     "private": true,
     "dependencies": {
         "@emotion/react": "^11.8.2",
