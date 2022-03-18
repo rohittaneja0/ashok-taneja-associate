@@ -1,10 +1,7 @@
 {
     "name": "ashok-taneja-associates",
     "version": "0.1.0",
-<<<<<<< HEAD
-    "homepage": "https://rohittaneja0.github.io/ashok-taneja-associates",
-=======
->>>>>>> 9cf147167e532dbb8334d935b65c7e28c1ea9172
+    "homepage": "http://rohittaneja0.github.io/ashok-taneja-associates",
     "private": true,
     "dependencies": {
         "@emotion/react": "^11.8.2",
@@ -14,6 +11,7 @@
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^12.0.0",
         "@testing-library/user-event": "^13.2.1",
+        "gh-pages": "^3.2.3",
         "heroku": "^7.59.4",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
@@ -22,6 +20,8 @@
         "web-vitals": "^2.1.0"
     },
     "scripts": {
+        "predeploy": "yarn build",
+        "deploy": "gh-pages -d build",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
